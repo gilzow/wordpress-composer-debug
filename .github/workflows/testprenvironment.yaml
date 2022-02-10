@@ -7,8 +7,8 @@ on:
   pull_request:
     branches:
       - master
-env:
-  GITHUB_TOKEN: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
+#env:
+  #GITHUB_TOKEN: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
 jobs:
   test-pr-env:
     name: TestPrEnvironment
@@ -18,7 +18,7 @@ jobs:
         id: get-target-url
         uses: platformsh/retrieve-psh-prenv-url@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.WPCDEBUG1 }}
       - name: 'Does Our App Work?'
         id: test-environment
         run: |

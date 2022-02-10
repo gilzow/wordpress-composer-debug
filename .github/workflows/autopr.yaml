@@ -6,25 +6,25 @@ on:
   workflow_dispatch:
 
 env:
-  PLATFORMSH_CLI_TOKEN: ${{ secrets.TEMPLATES_CLI_TOKEN }}
-  GITHUB_TOKEN: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
+  PLATFORMSH_CLI_TOKEN: ${{ secrets.PSH_CLI }}
+  #GITHUB_TOKEN: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
 
 jobs:
   create-auto-pr:
     name: "Creates an auto merging PR when the branch is updated"
     runs-on: ubuntu-latest
-    if: ${{ github.repository_owner == 'platformsh-templates' }}
+    if: ${{ github.repository_owner == 'gilzow' }}
     steps:
       - name: 'Prep the repo for autoPR'
         id: prepautopr
         uses: platformsh/prep-for-autopr@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.WPCDEBUG1 }}
 
       - name: 'Create & merge PR'
         id: create-merge-pr
         uses: platformsh/create-autopr@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.WPCDEBUG1 }}
           trigger-source: 'auto push'
           default-branch: ${{ steps.prepautopr.outputs.default-branch }}
