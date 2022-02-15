@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: 'Prep the repo for autoPR'
         id: prepautopr
-        uses: platformsh/prep-for-autopr@main
+        uses: platformsh/prep-for-autopr@merge-protection-rules
         with:
           github-token: ${{ secrets.WPCDEBUG1 }}
 
